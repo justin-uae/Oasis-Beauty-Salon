@@ -1,0 +1,2 @@
+import {site} from '@/app/data/site';
+export default function JsonLd(){const data={"@context":"https://schema.org","@type":"BeautySalon",name:site.name,url:'https://www.oasisaltrincham.co.uk',telephone:site.phone,email:site.email,address:{"@type":"PostalAddress",streetAddress:'6a Old Market Place',addressLocality:'Altrincham',addressRegion:'Greater Manchester',postalCode:'WA14 4NP',addressCountry:'GB'},sameAs:[site.instagram,site.facebook],priceRange:'££'};return <script type='application/ld+json' dangerouslySetInnerHTML={{__html:JSON.stringify(data)}}/>}
