@@ -15,7 +15,6 @@ export default function Page() {
             <Hero
                 title="Salon gallery"
                 lead="Recent nail, lash and brow work from the Oasis team, plus a look at the salon on Old Market Place."
-                image="/images/salon/shopfront-street.webp"
             />
             <section className="container py-16">
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">

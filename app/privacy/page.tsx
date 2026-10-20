@@ -35,6 +35,7 @@ export default function Page() {
           <p>This website may use the following technologies, each of which can set cookies or similar identifiers in your browser:</p>
           <p><strong>Google Analytics</strong> — helps us understand how visitors use the site (pages viewed, time on site, general location). Analytics data is aggregated and used to improve the website.</p>
           <p><strong>Google reCAPTCHA</strong> — used on the contact form to help distinguish real visitors from automated bots and prevent spam submissions. reCAPTCHA may set cookies and collect hardware and software information, such as device and application data, which is sent to Google. Use of reCAPTCHA is subject to the <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noreferrer">Google Terms of Service</a>.</p>
+          <p><strong>Google Maps</strong> — the map on our contact page is provided by Google and may set cookies when it loads. Use of Google Maps is subject to the <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a>.</p>
           <p>You can control or delete cookies through your browser settings at any time. Blocking cookies may affect how parts of this website work, including the contact form.</p>
 
           <h2>Sharing your information</h2>

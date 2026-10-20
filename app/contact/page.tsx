@@ -1,5 +1,6 @@
 import Hero from '../components/Hero';
 import ContactForm from '../components/ContactForm';
+import FindUs from '../components/FindUs';
 import {site} from '../data/site';
 import {Send, Sparkles, Phone, Mail, MapPin, Instagram} from 'lucide-react';
 
@@ -8,7 +9,7 @@ export const metadata = {title: 'Contact Oasis Beauty Salon', description: 'Get 
 export default function Page() {
   return (
     <>
-      <Hero title="Contact Oasis Beauty Salon" lead="Have a question about a treatment, a booking or a gift voucher? Send us a message or reach out directly and our team will get back to you." image="/images/salon/salon-entrance.webp" />
+      <Hero title="Contact Oasis Beauty Salon" lead="Have a question about a treatment, a booking or a gift voucher? Send us a message or reach out directly and our team will get back to you."/>
       <section className="container py-16">
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           <div className="card p-5 sm:p-8">
@@ -53,6 +54,7 @@ export default function Page() {
                 <span>
                   <span className="block font-bold">Address</span>
                   <span className="block text-black/65">{site.address}</span>
+                  <a href="#find-us" className="block mt-1 text-sm underline text-bronze-deep">See photos &amp; map</a>
                 </span>
               </div>
               <div className="card p-5 flex items-start gap-4 bg-cream border-line">
@@ -66,6 +68,7 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <FindUs />
     </>
   );
 }

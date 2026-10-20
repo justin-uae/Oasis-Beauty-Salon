@@ -29,7 +29,7 @@ Stop `npm run dev` before running a build — both use the `.next` folder.
 
 - **Treatments** (`app/data/services.ts`): the 14 services from the salon flyer, grouped into Facials, Nails, Brows & Lashes and And more.
 - **Spa packages** (`app/data/packages.ts`): Gold, Silver, Bronze and Detox — the only published prices.
-- **Photos and videos** (`app/data/media.ts`): each file in `public/images/salon/` and `public/videos/` is used in one place (the salon interior photo is shared by the home and team banners).
+- **Photos and videos** (`app/data/media.ts`): each file in `public/images/salon/` and `public/videos/` is not repeated within a page; the salon interior photo (home and team banners) and the outside photos (gallery, About banner, Contact page) appear on more than one page.
 - 20 Trafford area pages, 18 local search guides and 10 gift occasion pages.
 
 ## Design

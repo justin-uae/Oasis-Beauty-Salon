@@ -1,4 +1,4 @@
-// Each photo and video is used in one place, except salon-interior (home + team banners, by request).
+// Media is not repeated within a page. Shared across pages: salon-interior (home + team banners) and the outside photos (gallery, About banner, Contact find-us).
 export type MediaItem =
   | {type: 'image'; src: string; alt: string}
   | {type: 'video'; src: string; poster: string; alt: string};
@@ -34,7 +34,10 @@ export const gallery: (MediaItem & {caption: string})[] = [
   {...vid('nails-berry-sparkle', 'Berry sparkle nails'), caption: 'Berry sparkle'},
   {...img('nails-milky-white', 'Milky white BIAB nails'), caption: 'Milky white BIAB'},
   {...vid('nails-raspberry', 'Raspberry pink gel nails'), caption: 'Raspberry gel'},
+  {...img('shopfront-corner', 'Oasis Beauty Salon building on Old Market Place'), caption: 'Our building on Old Market Place'},
+  {...img('shopfront-street', 'Street view of Oasis Beauty Salon'), caption: 'Street view'},
   {...img('shopfront-windows', 'Oasis Beauty Salon windows on Old Market Place'), caption: 'Our windows on Old Market Place'},
+  {...img('salon-entrance', 'Oasis Beauty Salon entrance at 6a Old Market Place'), caption: 'Our entrance at 6a'},
   {...img('reception', 'Reception with our Fresha award'), caption: 'Reception'},
   {...vid('nails-mauve', 'Mauve gel nails'), caption: 'Mauve gel'},
   {...vid('nails-rose-glitter', 'Rose glitter nails'), caption: 'Rose glitter'},
