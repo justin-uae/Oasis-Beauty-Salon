@@ -12,8 +12,8 @@ declare global {
   }
 }
 
-// Test-only key that always validates — replace with the real site key once issued.
-const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
+// Set NEXT_PUBLIC_RECAPTCHA_SITE_KEY in .env before building (see .env.example).
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '';
 
 type Status = 'idle' | 'sending' | 'success' | 'error';
 

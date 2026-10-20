@@ -18,7 +18,7 @@ export default async function Page({params}: {params: Promise<{slug: string}>}) 
   if (!o) notFound();
   return (
     <>
-      <Hero title={o.name} lead={o.lead} image="/images/salon/treatment-room.webp" />
+      <Hero title={o.name} lead={o.lead} />
       <section className="container py-16">
         <div className="prose max-w-4xl">
           <h2>Choosing a beauty gift</h2>

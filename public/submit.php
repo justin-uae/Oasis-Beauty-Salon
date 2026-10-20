@@ -10,8 +10,8 @@
 //
 // Before going live:
 //   1. Create a .env file next to this file on the server (see .env.example)
-//      with your real RECAPTCHA_SECRET_KEY. Until then this uses Google's
-//      published "always passes" test key, which is NOT safe for production.
+//      with your RECAPTCHA_SECRET_KEY. The form will not send until it is set.
+//      (.htaccess blocks web access to .env files.)
 //   2. Set FROM_EMAIL to a real mailbox/alias on your hosting account.
 //   3. Confirm NOTIFY_EMAIL is where enquiries should land.
 
@@ -85,9 +85,8 @@ define('NOTIFY_EMAIL', getenv('NOTIFY_EMAIL') ?: 'bookings@oasisaltrincham.co.uk
 define('FROM_EMAIL', getenv('FROM_EMAIL') ?: 'noreply@oasisaltrincham.co.uk'); // must be a real mailbox/alias on this hosting account
 define('SITE_NAME', 'Oasis Beauty Salon');
 define('SITE_DOMAIN', 'www.oasisaltrincham.co.uk');
-// Google's published "always passes" test secret — pairs with the test site key in
-// ContactForm.tsx. Replace both with your real reCAPTCHA keys before launch.
-define('RECAPTCHA_SECRET_KEY', getenv('RECAPTCHA_SECRET_KEY') ?: '6LcIvnktAAAAABQTCxWhK75AZ-jkW6reExQvFkDM');
+// Secret key comes only from the server's .env — never hard-code it here.
+define('RECAPTCHA_SECRET_KEY', getenv('RECAPTCHA_SECRET_KEY') ?: '');
 
 // ---- Parse input ------------------------------------------------------------
 $json = file_get_contents('php://input');
@@ -128,6 +127,12 @@ $hits[] = $now;
 @file_put_contents($rateFile, json_encode($hits));
 
 // ---- Verify Google reCAPTCHA v2 ---------------------------------------------
+if (RECAPTCHA_SECRET_KEY === '') {
+    error_log('RECAPTCHA_SECRET_KEY is not set — add it to the .env file next to submit.php.');
+    http_response_code(500);
+    echo json_encode(['success' => false, 'message' => 'Sorry, the form is temporarily unavailable. Please call or email us.']);
+    exit();
+}
 $token = is_string($data['recaptchaToken'] ?? null) ? $data['recaptchaToken'] : '';
 if ($token === '') {
     http_response_code(400);

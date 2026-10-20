@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import {site} from '@/app/data/site';
 
 type Cta = {label: string; href: string; variant?: 'btn' | 'btn-alt'; external?: boolean};
@@ -7,7 +8,7 @@ const defaultCtas: Cta[] = [
   {label: 'Spa packages', href: '/prices/', variant: 'btn-alt'},
 ];
 
-export default function Hero({title, lead, image, ctas}: {title: string, lead: string, image?: string, ctas?: Cta[]}) {
+export default function Hero({title, lead, image, video, ctas}: {title: string, lead: string, image?: string, video?: {src: string; poster: string}, ctas?: Cta[]}) {
   const buttons = ctas ?? defaultCtas;
   const ctaButtons = (
     <div className="flex flex-wrap gap-3">
@@ -24,9 +25,10 @@ export default function Hero({title, lead, image, ctas}: {title: string, lead: s
     </div>
   );
 
-  if (image) {
+  if (image || video) {
     return (
-      <section className="page-hero" style={{'--hero-image': `url(${image})`} as React.CSSProperties}>
+      <section className="page-hero" style={{'--hero-image': `url(${image ?? video?.poster})`} as React.CSSProperties}>
+        {video && <video className="page-hero-video" src={video.src} poster={video.poster} autoPlay muted loop playsInline aria-hidden="true" />}
         <div className="container py-14 sm:py-16 lg:py-20">
           <div className="max-w-xl">
             <p className="uppercase tracking-[.28em] text-bronze text-xs sm:text-sm mb-4">Oasis Beauty Salon Altrincham</p>
@@ -49,12 +51,8 @@ export default function Hero({title, lead, image, ctas}: {title: string, lead: s
           {ctaButtons}
         </div>
         <div className="relative min-h-[260px] sm:min-h-[340px] lg:min-h-[420px] card overflow-hidden metallic">
-          <div className="absolute inset-8 rounded-full border border-white/80"></div>
-          <div className="absolute inset-20 rounded-full border border-white/60"></div>
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-            <div className="text-5xl sm:text-6xl lg:text-7xl font-serif">O</div>
-            <p className="tracking-[.35em] text-xs">OASIS</p>
-            <p className="text-xs mt-2">BEAUTY SALON</p>
+          <div className="absolute inset-0 flex items-center justify-center p-10">
+            <Image src="/Logo.png" alt="" width={406} height={172} className="w-3/4 max-w-[360px] h-auto" />
           </div>
         </div>
       </div>

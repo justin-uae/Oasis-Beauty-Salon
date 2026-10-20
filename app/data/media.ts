@@ -1,0 +1,40 @@
+// Every photo and video is used in exactly one place on the site.
+export type MediaItem =
+  | {type: 'image'; src: string; alt: string}
+  | {type: 'video'; src: string; poster: string; alt: string};
+
+const img = (name: string, alt: string): MediaItem => ({type: 'image', src: `/images/salon/${name}.webp`, alt});
+const vid = (name: string, alt: string): Extract<MediaItem, {type: 'video'}> => ({type: 'video', src: `/videos/${name}.mp4`, poster: `/videos/posters/${name}.webp`, alt});
+
+// Shown on the matching treatment page.
+export const treatmentMedia: Partial<Record<string, MediaItem>> = {
+  'hydrafacial': vid('hydrafacial', 'Hydrafacial treatment at Oasis'),
+  'anti-ageing-facial': img('anti-wrinkle-treatment', 'Anti-wrinkle facial treatment'),
+  'skin-tightening-and-lifting': img('facial-treatments', 'Skin tightening and lifting facial treatments'),
+  'manicures': vid('manicure-you-deserve-this', 'Manicure at Oasis Beauty Salon'),
+  'gel-nails-and-biab': vid('gel-nails-burgundy', 'Burgundy gel nails'),
+  'pedicures': vid('pedicure-station', 'Pedicure station at Oasis'),
+  'lash-extensions': vid('lash-extensions', 'Lash extensions'),
+  'lvl-lashes': vid('lvl-lashes', 'LVL lash lift result'),
+  'hot-stone-massage': img('treatment-room', 'Massage treatment room'),
+};
+
+export const reviewsVideo = vid('fresha-award', 'Fresha Highly Recommended award for Oasis Beauty Salon');
+export const menuFlyer = img('treatment-menu-flyer', 'Oasis Beauty Salon treatment menu');
+
+export const gallery: (MediaItem & {caption: string})[] = [
+  {...vid('salon-walkthrough', 'A walk through Oasis Beauty Salon'), caption: 'Inside the salon'},
+  {...img('nails-pink-sparkle', 'Pink sparkle gel nails'), caption: 'Pink sparkle gel'},
+  {...vid('nails-soft-pink', 'Soft pink gel nails'), caption: 'Soft pink gel'},
+  {...img('nails-silver-glitter', 'Silver glitter nails'), caption: 'Silver glitter'},
+  {...vid('nails-forest-green', 'Forest green gel nails'), caption: 'Forest green gel'},
+  {...img('nails-classic-red', 'Classic red nails'), caption: 'Classic red'},
+  {...vid('lashes-and-brows', 'Lashes and brows'), caption: 'Lashes & brows'},
+  {...img('nails-dark-cherry', 'Dark cherry gel nails'), caption: 'Dark cherry gel'},
+  {...vid('nails-berry-sparkle', 'Berry sparkle nails'), caption: 'Berry sparkle'},
+  {...img('nails-milky-white', 'Milky white BIAB nails'), caption: 'Milky white BIAB'},
+  {...vid('nails-raspberry', 'Raspberry pink gel nails'), caption: 'Raspberry gel'},
+  {...img('shopfront-windows', 'Oasis Beauty Salon windows on Old Market Place'), caption: 'Our windows on Old Market Place'},
+  {...vid('nails-mauve', 'Mauve gel nails'), caption: 'Mauve gel'},
+  {...vid('nails-rose-glitter', 'Rose glitter nails'), caption: 'Rose glitter'},
+];

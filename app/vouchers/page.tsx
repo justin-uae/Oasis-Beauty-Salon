@@ -15,7 +15,6 @@ export default function Page() {
       <Hero
         title="Gift vouchers"
         lead="Treat someone to Oasis Beauty Salon with a digital gift voucher, delivered by email or ready to print."
-        image="/images/salon/treatment-room.webp"
         ctas={[{ label: "Buy a gift voucher", href: GIFTUP_URL, external: true }]}
       />
       <section className="container py-14 sm:py-16 lg:py-20 max-w-4xl">

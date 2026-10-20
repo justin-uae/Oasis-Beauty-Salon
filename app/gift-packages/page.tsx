@@ -13,7 +13,6 @@ export default function Page() {
       <Hero
         title="Spa packages"
         lead="Facials, massage and nails combined into one relaxing visit. Book one for yourself or give it as a gift."
-        image="/images/salon/treatment-room.webp"
       />
       <section className="container py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">

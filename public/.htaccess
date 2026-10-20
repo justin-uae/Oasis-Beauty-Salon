@@ -6,17 +6,11 @@ RewriteCond %{HTTP_HOST} !^www\. [NC]
 RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
 RewriteRule ^ https://www.%1%{REQUEST_URI} [L,NE,R=301]
 
-# Never expose raw directory listings. Next.js's static export creates a
-# real directory for any route that also has nested dynamic children (e.g.
-# /countries/ holds every /countries/[country] page), which shadows that
-# route's own "<name>.html" file — without this Apache would dump a raw
-# file index instead of serving the page.
+# Never expose raw directory listings.
 Options -Indexes
 
 # When the request resolves to a real directory with no index.html of its
-# own, serve the sibling "<name>.html" file one level up instead (this is
-# what makes /countries, /services and /countries/united-kingdom resolve
-# to their actual page instead of a directory listing).
+# own, serve the sibling "<name>.html" file instead.
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteCond %{REQUEST_FILENAME}/index.html !-f
 RewriteCond %{REQUEST_URI} ^/(.*[^/])/?$
@@ -36,8 +30,9 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /404.html [L]
 
-# Block direct access to PHP error logs written alongside send-quote.php.
-<FilesMatch "\.log$">
+# Block direct access to the .env secrets file and PHP error logs written
+# alongside submit.php.
+<FilesMatch "(^\.env.*|\.log)$">
   <IfModule mod_authz_core.c>
     Require all denied
   </IfModule>

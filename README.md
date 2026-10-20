@@ -1,6 +1,6 @@
 # Oasis Beauty Salon website
 
-Next.js, React, TypeScript and Tailwind CSS website using the selected Design 3 direction.
+Static website for Oasis Beauty Salon, 6a Old Market Place, Altrincham. Built with Next.js, React, TypeScript and Tailwind CSS.
 
 ## Run locally
 
@@ -9,59 +9,29 @@ npm install
 npm run dev
 ```
 
-## Static production build
+## Build for upload
 
 ```bash
 npm install
 npm run build
 ```
 
-The static website is generated in the `out` folder. Upload the contents of `out` to the web root.
+The static site is generated in `out/`. Upload the contents of `out/` to the web root.
 
-## Included
-- Current logo
-- Existing pages: home, about, prices, portfolio, vouchers, booking link, contact and privacy
-- Current published prices
-- Current Instagram and Facebook links
-- 20 Trafford area pages
-- 27 treatment pages
-- 20 additional keyword landing pages
-- Sitemap, robots and metadata
+Stop `npm run dev` before running a build — both use the `.next` folder.
 
-## Before launch
-Replace portfolio placeholders with approved client images, connect the contact form to the chosen email service, review opening hours, and confirm that all prices and booking links remain current.
+## Environment
 
-## Added conversion, trust and social upgrades
+- `.env` (project root, used at build time): `NEXT_PUBLIC_RECAPTCHA_SITE_KEY`, optional `NEXT_PUBLIC_GA_ID`. See `.env.example`.
+- `.env` next to `submit.php` on the server: `RECAPTCHA_SECRET_KEY`, `NOTIFY_EMAIL`, `FROM_EMAIL`. See `public/.env.example`. The contact form will not send until the secret key is set. `.htaccess` blocks web access to `.env` files.
 
-- Team page using only publicly confirmed names and roles
-- Reviews page linking to the current booking profile
-- Treatment finder
-- Categorised gallery structure
-- Gift voucher and seasonal landing pages
-- LocalBusiness structured data
-- Google Analytics hook using `NEXT_PUBLIC_GA_ID`
-- Open Graph and X metadata
-- Branded image templates in `public/social`
-- Social media photo size guide
-- Expanded sitemap and footer navigation
+## Content
 
-Replace gallery placeholders with original salon photographs. Keep the same aspect ratios to avoid unwanted cropping.
+- **Treatments** (`app/data/services.ts`): the 14 services from the salon flyer, grouped into Facials, Nails, Brows & Lashes and And more.
+- **Spa packages** (`app/data/packages.ts`): Gold, Silver, Bronze and Detox — the only published prices.
+- **Photos and videos** (`app/data/media.ts`): each file in `public/images/salon/` and `public/videos/` is used in exactly one place.
+- 20 Trafford area pages, 18 local search guides and 10 gift occasion pages.
 
+## Design
 
-## Branding update
-
-The original previous-site logo is retained in `public/oasis-logo.png` and used through `public/oasis-logo-original.svg`. See `BRAND-KIT.md` for logo variants and social-photo dimensions. The site also includes a fixed mobile call and booking bar.
-
-## Final gift centre update
-
-This final release keeps all existing pages and adds:
-
-- 10 discounted gift packages based on the current treatment price data
-- Individual static SEO pages for every package
-- 10 occasion-based beauty gift pages
-- Recipient-name and personal-message guidance
-- Gift package links in the header, footer and homepage
-- Gift package and occasion URLs in the XML sitemap
-- No client account, loyalty system or results gallery
-
-Package purchases are handled through direct contact with Oasis Beauty Salon. No online payment provider has been added.
+Colours are taken from the logo's rose-gold background. See `BRAND-KIT.md`.

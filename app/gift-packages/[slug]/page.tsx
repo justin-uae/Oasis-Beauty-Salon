@@ -18,7 +18,7 @@ export default async function Page({params}: {params: Promise<{slug: string}>}) 
   if (!p) notFound();
   return (
     <>
-      <Hero title={p.name} lead={p.headline + '.'} image="/images/salon/treatment-room.webp" />
+      <Hero title={p.name} lead={p.headline + '.'} />
       <section className="container py-16 grid lg:grid-cols-[1fr_360px] gap-12">
         <article className="prose max-w-none">
           <h2>What is included</h2>
