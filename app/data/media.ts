@@ -1,4 +1,4 @@
-// Every photo and video is used in exactly one place on the site.
+// Each photo and video is used in one place, except salon-interior (home + team banners, by request).
 export type MediaItem =
   | {type: 'image'; src: string; alt: string}
   | {type: 'video'; src: string; poster: string; alt: string};
@@ -23,8 +23,8 @@ export const reviewsVideo = vid('fresha-award', 'Fresha Highly Recommended award
 export const menuFlyer = img('treatment-menu-flyer', 'Oasis Beauty Salon treatment menu');
 
 export const gallery: (MediaItem & {caption: string})[] = [
-  {...vid('salon-walkthrough', 'A walk through Oasis Beauty Salon'), caption: 'Inside the salon'},
   {...img('nails-pink-sparkle', 'Pink sparkle gel nails'), caption: 'Pink sparkle gel'},
+  {...vid('salon-walkthrough', 'A walk through Oasis Beauty Salon'), caption: 'Inside the salon'},
   {...vid('nails-soft-pink', 'Soft pink gel nails'), caption: 'Soft pink gel'},
   {...img('nails-silver-glitter', 'Silver glitter nails'), caption: 'Silver glitter'},
   {...vid('nails-forest-green', 'Forest green gel nails'), caption: 'Forest green gel'},
@@ -35,6 +35,7 @@ export const gallery: (MediaItem & {caption: string})[] = [
   {...img('nails-milky-white', 'Milky white BIAB nails'), caption: 'Milky white BIAB'},
   {...vid('nails-raspberry', 'Raspberry pink gel nails'), caption: 'Raspberry gel'},
   {...img('shopfront-windows', 'Oasis Beauty Salon windows on Old Market Place'), caption: 'Our windows on Old Market Place'},
+  {...img('reception', 'Reception with our Fresha award'), caption: 'Reception'},
   {...vid('nails-mauve', 'Mauve gel nails'), caption: 'Mauve gel'},
   {...vid('nails-rose-glitter', 'Rose glitter nails'), caption: 'Rose glitter'},
 ];

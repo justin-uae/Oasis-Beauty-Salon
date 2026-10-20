@@ -11,7 +11,7 @@ export default function Page() {
       <Hero
         title="Meet the team"
         lead="Meet the therapists who look after you at Oasis Beauty Salon."
-        image="/images/salon/reception.webp"
+        image="/images/salon/salon-interior.webp"
       />
       <section className="container py-16">
         <div className="grid md:grid-cols-2 gap-6">
